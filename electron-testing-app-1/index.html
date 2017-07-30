@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Hello World!</title>
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+<body>
+
+	<script>
+		require('./header.js')
+	</script>
+
+	<!-- <h1>Hello World!</h1> -->
+	<!-- All of the Node.js APIs are available in this renderer process. -->
+	<!-- We are using Node.js <script>document.write(process.versions.node)</script>,
+	Chromium <script>document.write(process.versions.chrome)</script>,
+	and Electron <script>document.write(process.versions.electron)</script>. -->
+	<!-- <textarea name="name" rows="10" cols="80"></textarea> -->
+	<div id="ace"> </div>
+
+	<input type="text" value="n3lad01" id="pwd">
+	<button type="button" name="button" id="hashbtn">CYYBEER!!</button>
+	<p id="hash"></p>
+	<p id="unhash"></p>
+</body>
+
+<script type="text/javascript" src="./js_modules/ace/ace.js"></script>
+<script>
+
+// You can also require other files to run in this process
+require('./renderer.js')
+
+const $ = require('jquery');
+const crypto = require('crypto');
+
+
+var editor = ace.edit("ace");
+configureAce(editor);
+editor.renderer.setShowGutter(false);
+function configureAce(aceEditor) {
+	aceEditor.setTheme("ace/theme/solarized_dark");
+	aceEditor.getSession().setMode("ace/mode/markdown");
+	aceEditor.setShowPrintMargin(false);
+	aceEditor.getSession().setUseWrapMode(true);
+	aceEditor.setOptions({
+		maxLines: 80,
+		fontSize: "12pt"
+	});
+	aceEditor.commands.addCommand({
+		name: 'saveCommand',
+		bindKey: {win: 'Ctrl-S',  mac: 'Command-S'},
+		exec: function() {
+			// saveEntry();
+		},
+		readOnly: false // false if this command should not apply in readOnly mode
+	});
+}
+
+
+// Nodejs encryption with CTR
+var algorithm = 'aes-256-ctr';
+
+
+function encrypt(text){
+	var password = $('#pwd').val();
+	var cipher = crypto.createCipher(algorithm,password)
+	var crypted = cipher.update(text,'utf8','hex')
+	crypted += cipher.final('hex');
+	return crypted;
+}
+
+function decrypt(text){
+	var password = $('#pwd').val();
+	var decipher = crypto.createDecipher(algorithm,password)
+	var dec = decipher.update(text,'hex','utf8')
+	dec += decipher.final('utf8');
+	return dec;
+}
+
+var hw = encrypt("hello world")
+// outputs hello world
+console.log();
+
+
+$('#hashbtn').click(function() {
+	var secret = editor.getValue();
+	var hw = encrypt(secret)
+
+	$('#hash').html(hw);
+	$('#unhash').html(decrypt(hw));
+})
+
+
+</script>
+</html>

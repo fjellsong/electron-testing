@@ -1,0 +1,23 @@
+{
+  "name": "qoreDEV",
+  "version": "0.0.0",
+  "description": "A application in development by qore",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/repoTK",
+  "keywords": [
+    "qore"
+  ],
+  "author": "qore",
+  "license": "WTFPL",
+  "devDependencies": {
+    "electron": "~1.6.2",
+    "electron-packager": "^8.7.2"
+  },
+  "dependencies": {
+    "bootstrap": "^4.0.0-alpha.6",
+    "jquery": "^3.2.1"
+  }
+}
