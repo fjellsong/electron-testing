@@ -1,3 +1,5 @@
+![qore-logo](https://qore.no/img/logo-text-300.png)
+
 # qoreDEV electron app
 
 	electron-packager . --icon qoreAppLogo1.icns --overwrite
