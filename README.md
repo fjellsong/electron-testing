@@ -1,6 +1,6 @@
 # qoreDEV electron app
 
-´´´electron-packager . --icon qoreAppLogo1.icns --overwrite´´´
+	electron-packager . --icon qoreAppLogo1.icns --overwrite
 
 ## Resources for Learning Electron
 
@@ -13,4 +13,4 @@
 
 ## License
 
-[WTFPL 2.0](LICENSE.md)
+[WTFPL](LICENSE.md)
