@@ -1,4 +1,4 @@
-![qore-logo](https://qore.no/img/logo-text-300.png)
+![qore logo](https://qore.no/img/logo-text-100.png)
 
 # qoreDEV electron app
 
