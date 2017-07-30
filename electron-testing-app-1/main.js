@@ -19,18 +19,10 @@ function createWindow () {
 	  width: 800,
 	  height: 600,
 	  titleBarStyle: 'hidden',
-	  x: 0,
-	  y: 300,
-	  fullscreenable: false,
-	  maximizable: true
+	  fullscreenable: true
   })
 
   // and load the index.html of the app.
-  // mainWindow.loadURL(url.format({
-  //   pathname: path.join(__dirname, 'index.html'),
-  //   protocol: 'file:',
-  //   slashes: true
-  // }))
   mainWindow.loadURL(url.format({
 	pathname: path.join(__dirname, 'index.html'),
 	protocol: 'file:',
@@ -47,7 +39,7 @@ function createWindow () {
     // when you should delete the corresponding element.
     mainWindow = null
   })
-  // 
+  //
   // mainWindow.on('blur', function () {
   //  mainWindow.hide()
   // })
@@ -57,7 +49,6 @@ function createWindow () {
   // })
 
   globalShortcut.register('Alt+Z', function () {
-	mainWindow.setAlwaysOnTop(true, "screen-saver")
 	mainWindow.setSize(600, 800)
 	mainWindow.show()
 	mainWindow.focus()

@@ -4,7 +4,7 @@ const Menu = electron.Menu
 const app = electron.app
 
 let template = [{
-  label: 'Edit!',
+  label: 'Edit',
   submenu: [{
     label: 'Undo',
     accelerator: 'CmdOrCtrl+Z',

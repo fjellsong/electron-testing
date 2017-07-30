@@ -1,8 +1,20 @@
 ![qore logo](https://qore.no/img/logo-text-100.png)
 
-# qoreDEV electron app
+# Electron.js testing apps
+
+This is a collection of non-usefull apps that was made while learning Node.js and [Electron.js](http://electron.atom.io/).
+
+## Installation
+
+In the relevant app folder (e.g. electron-template/) run
+
+	npm install
+	npm start
+
+To compile the app to a Mac app, run
 
 	electron-packager . --icon qoreAppLogo1.icns --overwrite
+
 
 ## Resources for Learning Electron
 
